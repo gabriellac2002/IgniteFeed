@@ -7,7 +7,7 @@ function App() {
   return (
     <div>
       <Header />
-      <div className="max-w-6xl my-8 mx-auto grid grid-cols-[256px_1fr] gap-8 items-start">
+      <div className="max-w-6xl my-8 mx-8 md:mx-auto grid grid-cols-1 md:grid-cols-[256px_1fr] gap-8 items-start">
         <Sidebar />
         <main>
           <Post
