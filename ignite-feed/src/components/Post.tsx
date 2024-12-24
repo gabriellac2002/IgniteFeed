@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Comment } from "./Comment";
 
 type PostProps = {
   name: string;
@@ -55,6 +56,12 @@ export default function Post({ name, body, role, image }: PostProps) {
           </button>
         )}
       </form>
+
+      <div className="mt-8">
+        <Comment />
+        <Comment />
+        <Comment />
+      </div>
     </div>
   );
 }
