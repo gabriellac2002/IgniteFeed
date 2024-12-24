@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Comment } from "./Comment";
+import { Avatar } from "./Avatar";
 
 type PostProps = {
   name: string;
@@ -14,11 +15,7 @@ export default function Post({ name, body, role, image }: PostProps) {
     <div className=" bg-gray-800 rounded-lg p-10 mb-8">
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <img
-            src={image}
-            className="rounded-lg border-4 border-gray-800 outline outline-2 outline-green-500"
-            style={{ height: `calc(3rem + 8px)`, width: `calc(3rem + 8px)` }}
-          />
+          <Avatar src={image} hasBorder />
           <div className="flex flex-col">
             <strong className="mt-4 text-base text-gray-100 mb-1">
               {name}

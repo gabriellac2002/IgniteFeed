@@ -1,4 +1,5 @@
 import { RiEdit2Fill } from "react-icons/ri";
+import { Avatar } from "./Avatar";
 
 export default function Sidebar() {
   return (
@@ -10,11 +11,7 @@ export default function Sidebar() {
       />
 
       <div className="flex flex-col items-center mt-[calc(0px-2rem-4px)]">
-        <img
-          src="https://github.com/gabriellac2002.png"
-          className="rounded-lg border-4 border-gray-800 outline outline-2 outline-green-500"
-          style={{ height: `calc(4rem + 8px)`, width: `calc(4rem + 8px)` }}
-        />
+        <Avatar src="https://github.com/gabriellac2002.png" hasBorder />
         <strong className="mt-4 text-base text-gray-100 mb-1">
           Gabriella Cruz
         </strong>

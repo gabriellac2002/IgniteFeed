@@ -1,14 +1,10 @@
 import { TbThumbUp, TbTrash } from "react-icons/tb";
+import { Avatar } from "./Avatar";
 
 export function Comment() {
   return (
     <div className="mt-6 flex gap-4">
-      <img
-        src="https://github.com/gabriellac2002.png"
-        alt=""
-        className="rounded-lg border-4 border-gray-800 w-12 h-12"
-      />
-
+      <Avatar src="https://github.com/gabriellac2002.png" />
       <div className="flex flex-1 flex-col">
         <div className="bg-gray-700 rounded-lg p-4">
           <header className="flex items-start justify-between ">
