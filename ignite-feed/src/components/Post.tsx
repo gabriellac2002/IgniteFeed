@@ -12,6 +12,14 @@ const Post: React.FC<Props> = ({ post }) => {
   const [comments, setComments] = useState<CommentType[]>([]);
   const [newComment, setNewComment] = useState("");
 
+  function handleNewCommentInvalid(
+    event: React.InvalidEvent<HTMLTextAreaElement>
+  ) {
+    event.target.setCustomValidity(
+      "Por favor, preencha o campo de comentário."
+    );
+  }
+
   function handleCreateComment(event: React.FormEvent) {
     event.preventDefault();
     console.log("handleCreateComment called");
@@ -78,11 +86,19 @@ const Post: React.FC<Props> = ({ post }) => {
           className="w-full bg-gray-900 border-0 resize-none h-24 p-4 rounded-lg text-gray-100 mt-4"
           placeholder="Deixe um comentario"
           value={newComment}
-          onChange={(e) => setNewComment(e.target.value)}
+          onChange={(e) => {
+            e.target.setCustomValidity("");
+            setNewComment(e.target.value);
+          }}
+          required
+          onInvalid={handleNewCommentInvalid}
         />
         <button
           type="submit"
-          className="py-4 px-6 mt-4 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-400 transition-colors duration-100"
+          className={`py-4 px-6 mt-4 rounded-lg bg-green-500 text-white font-semibold hover:bg-green-400 transition-colors duration-100 ${
+            !newComment ? "opacity-70 cursor-not-allowed" : ""
+          }`}
+          disabled={!newComment}
         >
           Publicar
         </button>

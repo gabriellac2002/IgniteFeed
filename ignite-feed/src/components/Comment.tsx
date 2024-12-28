@@ -1,6 +1,7 @@
 import { TbThumbUp, TbTrash } from "react-icons/tb";
 import { Avatar } from "./Avatar";
 import { Comment as CommentType } from "../types/Comment";
+import { useState } from "react";
 
 type Props = {
   comment: CommentType;
@@ -8,10 +9,17 @@ type Props = {
 };
 
 export const Comment: React.FC<Props> = ({ comment, handleDeleteComment }) => {
+  const [likeCount, setLikeCount] = useState(0);
+
   function onDeleteComment() {
     console.log("handleDeleteComment called");
     handleDeleteComment(comment.id);
   }
+
+  function handleLikeCount() {
+    setLikeCount(likeCount + 1);
+  }
+
   return (
     <div className="mt-6 flex gap-4">
       <Avatar src={comment.author.avatar_url} />
@@ -50,10 +58,15 @@ export const Comment: React.FC<Props> = ({ comment, handleDeleteComment }) => {
         </div>
 
         <footer className="mt-4">
-          <button className="bg-transparent border-none text-gray-300 flex items-center hover:text-green-300">
+          <button
+            className="bg-transparent border-none text-gray-300 flex items-center hover:text-green-300"
+            onClick={handleLikeCount}
+          >
             <TbThumbUp className="mr-2" />
             Aplaudir{" "}
-            <span className="before:content-['•'] before:mx-1">20</span>
+            <span className="before:content-['•'] before:mx-1">
+              {likeCount}
+            </span>
           </button>
         </footer>
       </div>
